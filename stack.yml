@@ -5,6 +5,7 @@ provider:
 functions:
   brunchies:
     skip_build: true
+    language: dockerfile
     image: jonatasbaldin/brunchies:latest
     secrets:
       - spotify
