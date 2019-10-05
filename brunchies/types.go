@@ -1,4 +1,4 @@
-package main
+package function
 
 type Track struct {
 	Name    string

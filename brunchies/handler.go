@@ -1,10 +1,8 @@
-package main
+package function
 
 import (
-	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"text/template"
 )
 
@@ -28,21 +26,23 @@ func index(w http.ResponseWriter, r *http.Request, client SpotifyClient) {
 	}
 }
 
-func main() {
+func Handle(w http.ResponseWriter, r *http.Request) {
 	config := NewSpotifyConfig()
 	client := NewSpotifyClient(config)
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
+	// port := os.Getenv("PORT")
+	// if port == "" {
+	// 	port = "8080"
+	// }
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		index(w, r, client)
-	})
+	index(w, r, client)
 
-	err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	// 	index(w, r, client)
+	// })
+
+	// err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 }
