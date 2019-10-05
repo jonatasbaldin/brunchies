@@ -17,3 +17,6 @@
 # vendor/
 
 brunchies
+template
+build
+pub-cert.pem
