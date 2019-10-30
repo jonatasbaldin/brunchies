@@ -4,8 +4,7 @@ provider:
   gateway: http://127.0.0.1:31112
 functions:
   brunchies:
-    skip_build: true
-    lang: dockerfile
+    lang: golang-http
     image: jonatasbaldin/brunchies:latest
     secrets:
       - spotify
