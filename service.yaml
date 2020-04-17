@@ -1,0 +1,20 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: brunchies
+spec:
+  template:
+    spec:
+      containers:
+        - image: jonatasbaldin/brunchies:0.0.1
+          env:
+            - name: SPOTIFY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: brunchies
+                  key: SPOTIFY_ID
+            - name: SPOTIFY_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: brunchies
+                  key: SPOTIFY_SECRET
